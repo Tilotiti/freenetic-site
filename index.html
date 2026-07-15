@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freenetic — Pourquoi ça lag ? Le diagnostic réseau de votre Freebox, sur Mac.</title>
+<meta name="description" content="Freenetic répond à « pourquoi ça lag ? » en 5 secondes : débits par appareil de votre Freebox (répéteurs inclus), applications de votre Mac, latence et verdict clair. 100 % local.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:title" content="Freenetic — Pourquoi ça lag ?">
+<meta property="og:description" content="Le diagnostic réseau de votre Freebox, dans la barre de menus de votre Mac.">
+<meta property="og:image" content="https://freenetic.henry.pro/icon-large.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0f26; --bg2:#0e1533; --panel:#131b3f; --line:rgba(255,255,255,.08);
+  --txt:#eef1fb; --mut:#9aa3c7; --dim:#5d6690;
+  --blue:#4f8df9; --green:#3ddc97; --amber:#f5a524; --red:#f2555a;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--txt);
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-optical-sizing:auto; line-height:1.6; overflow-x:hidden;
+}
+.mono{font-family:"JetBrains Mono",monospace}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* fond : grille de moniteur + halo */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(900px 480px at 75% -10%, rgba(79,141,249,.16), transparent 65%),
+    radial-gradient(700px 400px at 10% 110%, rgba(61,220,151,.07), transparent 60%);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px, transparent 1px),
+                   linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:72px 72px; opacity:.25;
+  mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%, black 0%, transparent 75%);
+}
+
+header{display:flex;align-items:center;gap:12px;padding:22px 0}
+header img{width:36px;height:36px}
+header .name{font-weight:700;font-size:19px;letter-spacing:.2px}
+header nav{margin-left:auto;display:flex;gap:26px;font-size:14.5px;color:var(--mut)}
+header nav a{text-decoration:none}
+header nav a:hover{color:var(--txt)}
+
+/* hero */
+.hero{padding:72px 0 30px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media(max-width:880px){.hero{grid-template-columns:1fr;padding-top:40px}}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600}
+h1{font-size:clamp(44px,7vw,76px);line-height:1.02;font-weight:750;letter-spacing:-.02em;margin:14px 0 20px}
+h1 em{font-style:normal;color:var(--blue);position:relative;white-space:nowrap}
+h1 em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:10px;background:rgba(79,141,249,.22);z-index:-1;border-radius:3px}
+.hero p.lead{font-size:19px;color:var(--mut);max-width:34ch;margin-bottom:30px}
+.cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:650;border-radius:12px;padding:14px 22px;font-size:16px;transition:transform .15s ease, box-shadow .15s ease}
+.btn.primary{background:var(--blue);color:#06102e;box-shadow:0 8px 28px rgba(79,141,249,.35)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(79,141,249,.45)}
+.btn.ghost{border:1px solid var(--line);color:var(--mut)}
+.btn.ghost:hover{color:var(--txt);border-color:rgba(255,255,255,.2)}
+.meta{font-size:13px;color:var(--dim);margin-top:14px}
+
+/* mock app */
+.mock{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:rise .9s cubic-bezier(.2,.7,.2,1) both .15s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.mock .bar{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid var(--line);align-items:center}
+.mock .bar i{width:11px;height:11px;border-radius:50%;background:#2a3563;display:block}
+.mock .bar i:first-child{background:#f2555a}.mock .bar i:nth-child(2){background:#f5a524}.mock .bar i:nth-child(3){background:#3ddc97}
+.mock .bar span{margin-left:6px;font-size:12px;color:var(--dim)}
+.verdict{display:flex;align-items:center;gap:10px;padding:13px 16px;font-weight:650;font-size:15px;transition:background .6s}
+.verdict .dot{width:11px;height:11px;border-radius:50%;flex:none;transition:background .6s}
+.verdict[data-s="0"]{background:rgba(61,220,151,.12)}.verdict[data-s="0"] .dot{background:var(--green)}
+.verdict[data-s="1"]{background:rgba(245,165,36,.13)}.verdict[data-s="1"] .dot{background:var(--amber)}
+.verdict[data-s="2"]{background:rgba(242,85,90,.14)}.verdict[data-s="2"] .dot{background:var(--red)}
+.rows{font-size:13.5px}
+.row{display:flex;align-items:center;gap:10px;padding:9px 16px;border-top:1px solid var(--line)}
+.row .ic{width:17px;text-align:center;color:var(--dim);flex:none}
+.row .nm{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .via{font-size:11px;color:var(--dim);background:rgba(255,255,255,.05);padding:2px 8px;border-radius:99px;white-space:nowrap}
+.row svg{margin-left:auto;flex:none}
+.row .rate{width:96px;text-align:right;font-size:12.5px;color:var(--mut);flex:none}
+.row.sub{padding-left:40px;color:var(--mut)}
+.spark{stroke-dasharray:220;stroke-dashoffset:220;animation:draw 2.4s ease forwards}
+.row:nth-child(2) .spark{animation-delay:.3s}.row:nth-child(3) .spark{animation-delay:.5s}
+.row:nth-child(4) .spark{animation-delay:.7s}.row:nth-child(5) .spark{animation-delay:.9s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.up{color:var(--red);font-weight:600}.down{color:var(--green);font-weight:600}
+
+/* sections */
+section{padding:84px 0}
+h2{font-size:clamp(30px,4.4vw,44px);font-weight:730;letter-spacing:-.015em;line-height:1.1;margin-bottom:14px}
+.sub{color:var(--mut);font-size:17px;max-width:56ch;margin-bottom:44px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:880px){.grid{grid-template-columns:1fr}}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:transform .18s ease,border-color .18s ease}
+.card:hover{transform:translateY(-4px);border-color:rgba(79,141,249,.35)}
+.card .em{font-size:24px;margin-bottom:14px;display:block}
+.card h3{font-size:18px;font-weight:680;margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--mut)}
+
+/* étapes */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+@media(max-width:880px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:26px 24px 26px 24px;border:1px dashed rgba(255,255,255,.14);border-radius:var(--radius)}
+.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:"JetBrains Mono",monospace;color:var(--blue);font-size:13px;letter-spacing:.1em;display:block;margin-bottom:12px}
+.step h3{font-size:17px;margin-bottom:6px}.step p{font-size:14.5px;color:var(--mut)}
+
+/* privacy */
+.priv{background:linear-gradient(140deg,rgba(61,220,151,.08),rgba(79,141,249,.06));border:1px solid rgba(61,220,151,.2);border-radius:var(--radius);padding:38px 34px;display:flex;gap:26px;align-items:center}
+@media(max-width:700px){.priv{flex-direction:column;text-align:center}}
+.priv .lock{font-size:40px}
+.priv h3{font-size:21px;margin-bottom:6px}
+.priv p{color:var(--mut);font-size:15px;max-width:62ch}
+
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:20px 4px;font-weight:620;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--blue);font-size:22px;font-weight:400;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 4px 20px;color:var(--mut);font-size:15px;max-width:72ch}
+
+footer{border-top:1px solid var(--line);padding:36px 0 46px;font-size:13px;color:var(--dim)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <img src="icon.png" alt="Icône Freenetic" width="36" height="36">
+  <span class="name">Freenetic</span>
+  <nav>
+    <a href="#fonctions">Fonctionnalités</a>
+    <a href="#faq">FAQ</a>
+    <a href="#support">Support</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="kicker">Compatible Freebox · macOS 14+</span>
+    <h1>Pourquoi<br>ça <em>lag&nbsp;?</em></h1>
+    <p class="lead">Freenetic répond en 5&nbsp;secondes, depuis la barre de menus de votre Mac&nbsp;: qui sature votre Freebox, quelle application, ou si le problème est ailleurs.</p>
+    <div class="cta">
+      <a class="btn primary" href="#support">Bientôt disponible&nbsp;→</a>
+      <a class="btn ghost" href="#fonctions">Découvrir</a>
+    </div>
+    <p class="meta mono">Verdict · débits par appareil · latence · 100&nbsp;% local</p>
+  </div>
+
+  <div class="mock" aria-label="Aperçu de l'application Freenetic">
+    <div class="bar"><i></i><i></i><i></i><span class="mono">Freenetic</span></div>
+    <div class="verdict" id="verdict" data-s="0">
+      <span class="dot"></span><span id="vtxt">Rien d'anormal — ligne utilisée à 4 %</span>
+    </div>
+    <div class="rows mono">
+      <div class="row"><span class="ic">📺</span><span class="nm">Apple TV</span><span class="via">Freebox · Wi-Fi</span>
+        <svg width="64" height="16" viewBox="0 0 64 16" fill="none"><path class="spark" d="M0 12 L8 11 16 12 24 6 32 9 40 4 48 7 56 3 64 5" stroke="#4f8df9" stroke-width="1.5"/></svg>
+        <span class="rate">14,2 Mbit/s</span></div>
+      <div class="row"><span class="ic">💻</span><span class="nm"><strong>Ce Mac</strong></span><span class="via">Répéteur Bureau</span>
+        <svg width="64" height="16" viewBox="0 0 64 16" fill="none"><path class="spark" d="M0 13 L8 12 16 10 24 11 32 7 40 9 48 5 56 8 64 6" stroke="#4f8df9" stroke-width="1.5"/></svg>
+        <span class="rate">3,1 Mbit/s</span></div>
+      <div class="row sub"><span class="ic">🌐</span><span class="nm">Safari</span>
+        <svg width="64" height="16" viewBox="0 0 64 16" fill="none"><path class="spark" d="M0 13 L10 12 20 9 30 10 40 6 52 8 64 7" stroke="#3ddc97" stroke-width="1.5"/></svg>
+        <span class="rate">2,8 Mbit/s</span></div>
+      <div class="row" id="nasrow"><span class="ic">🗄️</span><span class="nm">NAS Synology</span><span class="via">Freebox · filaire</span>
+        <svg width="64" height="16" viewBox="0 0 64 16" fill="none"><path class="spark" id="naspark" d="M0 13 L10 13 20 12 30 13 40 12 52 13 64 12" stroke="#4f8df9" stroke-width="1.5"/></svg>
+        <span class="rate" id="nasrate">0,2 Mbit/s</span></div>
+      <div class="row"><span class="ic">📡</span><span class="nm">Latence Internet</span>
+        <svg width="64" height="16" viewBox="0 0 64 16" fill="none"><path class="spark" id="latspark" d="M0 10 L10 11 20 10 30 11 40 10 52 11 64 10" stroke="#9aa3c7" stroke-width="1.5"/></svg>
+        <span class="rate" id="latrate">11 ms</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="fonctions">
+  <h2>Tout votre réseau. Une seule liste.</h2>
+  <p class="sub">Les vues de la Freebox sont des instantanés qui changent chaque seconde. Freenetic observe, historise, et vous dit ce qui se passe — en français.</p>
+  <div class="grid">
+    <div class="card"><span class="em">🩺</span><h3>Un verdict, pas des chiffres</h3><p>« Upload saturé (92 %) — NAS Synology. » Vert, orange ou rouge&nbsp;: la réponse se lit sans interpréter le moindre graphique.</p></div>
+    <div class="card"><span class="em">📶</span><h3>Chaque appareil, vraiment</h3><p>Box, répéteurs Wi-Fi, filaire&nbsp;: chaque appareil est mesuré avec son point d'attache. Même ceux que l'app Freebox agrège ou oublie.</p></div>
+    <div class="card"><span class="em">🖥️</span><h3>Les applications du Mac</h3><p>« Ce Mac » se déplie&nbsp;: quelle app consomme, en temps réel. Vous savez enfin si c'est votre machine — ou le reste du foyer.</p></div>
+    <div class="card"><span class="em">⏱️</span><h3>La latence, pas que le débit</h3><p>En jeu, le lag vient souvent du bufferbloat, pas du débit. Freenetic surveille la latence vers la box et Internet, et l'intègre au verdict.</p></div>
+    <div class="card"><span class="em">📈</span><h3>L'historique qui manquait</h3><p>Fenêtres d'1 minute à 24 heures, tendances, pics. Le téléchargement de 3 h du matin ne s'échappera plus.</p></div>
+    <div class="card"><span class="em">⚡</span><h3>Dans la barre de menus</h3><p>Un clic, le triage. L'icône passe à l'alerte quand quelque chose cloche — même fenêtre fermée, même en plein match.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Prêt en une minute.</h2>
+  <div class="steps" style="margin-top:38px">
+    <div class="step"><h3>Associez</h3><p>Freenetic demande l'accès à votre Freebox&nbsp;; vous validez d'un geste sur l'écran de la box. Aucun mot de passe.</p></div>
+    <div class="step"><h3>Laissez vivre</h3><p>L'app observe en continu depuis la barre de menus, avec un impact négligeable sur la box et le Mac.</p></div>
+    <div class="step"><h3>Cliquez quand ça lag</h3><p>Le verdict, les coupables, la tendance. Cinq secondes, pas une commande de terminal.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="priv">
+    <span class="lock">🔒</span>
+    <div>
+      <h3>Vos données ne quittent jamais votre Mac.</h3>
+      <p>Freenetic parle à votre Freebox sur votre réseau local, stocke l'historique dans une base locale, et c'est tout. Pas de compte, pas de cloud, pas de télémétrie. La mesure par application utilise une extension système approuvée par vos soins — qui compte les octets sans jamais lire le contenu.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Questions fréquentes</h2>
+  <div style="margin-top:26px">
+    <details><summary>Avec quelles Freebox est-ce compatible&nbsp;?</summary><p>Toutes les Freebox exposant l'API Freebox OS moderne — Révolution, Delta, Pop, Ultra — avec un firmware récent. Les répéteurs Wi-Fi Free sont pris en charge. L'app est développée et testée sur Freebox Ultra.</p></details>
+    <details><summary>Que fait Freenetic que l'app Freebox Connect ne fait pas&nbsp;?</summary><p>L'historique dans le temps (et pas un instantané), le débit de chaque application de votre Mac, la latence intégrée au verdict, et une vraie app macOS dans la barre de menus. Freebox Connect reste très bien pour redémarrer la box.</p></details>
+    <details><summary>Pourquoi une extension système&nbsp;?</summary><p>C'est le seul mécanisme officiel d'Apple pour mesurer le trafic par application. Elle est facultative — tout le reste fonctionne sans — et se contente de compter des octets, localement.</p></details>
+    <details><summary>Combien ça coûte&nbsp;?</summary><p>Le prix sera annoncé au lancement — achat unique, sans abonnement ni compte.</p></details>
+    <details><summary>Mac App Store ou téléchargement direct&nbsp;?</summary><p>Les deux sont à l'étude pour le lancement. Dans tous les cas&nbsp;: app signée, notarisée par Apple, et sandboxée.</p></details>
+  </div>
+</section>
+
+<section id="support">
+  <h2>Support &amp; contact</h2>
+  <p class="sub" style="margin-bottom:18px">Une question, un bug, une Freebox exotique&nbsp;? Écrivez-moi — je réponds vite.</p>
+  <a class="btn primary" href="mailto:freenetic@henry.pro">freenetic@henry.pro</a>
+</section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thibault Henry — Freenetic</span>
+    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. « Freebox » est une marque de Free SAS.</span>
+  </div>
+</footer>
+
+<script>
+// Le verdict cycle entre les trois états, les données du mock suivent.
+const states = [
+  {s:0, t:"Rien d'anormal — ligne utilisée à 4 %", nas:"0,2 Mbit/s", lat:"11 ms",
+   nasP:"M0 13 L10 13 20 12 30 13 40 12 52 13 64 12", latP:"M0 10 L10 11 20 10 30 11 40 10 52 11 64 10", latC:"#9aa3c7"},
+  {s:1, t:"Upload chargé (78 %) — NAS Synology", nas:"↑ 546 Mbit/s", lat:"38 ms",
+   nasP:"M0 13 L10 12 20 9 30 5 40 3 52 2 64 2", latP:"M0 11 L10 10 20 9 30 8 40 7 52 6 64 5", latC:"#f5a524"},
+  {s:2, t:"Ligne saturée (96 %) — latence 210 ms", nas:"↑ 671 Mbit/s", lat:"210 ms",
+   nasP:"M0 12 L10 8 20 4 30 2 40 2 52 1 64 1", latP:"M0 12 L10 10 20 7 30 5 40 3 52 2 64 1", latC:"#f2555a"},
+];
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % states.length;
+  const st = states[i];
+  const v = document.getElementById("verdict");
+  v.dataset.s = st.s;
+  document.getElementById("vtxt").textContent = st.t;
+  document.getElementById("nasrate").textContent = st.nas;
+  document.getElementById("latrate").textContent = st.lat;
+  const nas = document.getElementById("naspark"), lat = document.getElementById("latspark");
+  nas.setAttribute("d", st.nasP);
+  lat.setAttribute("d", st.latP);
+  lat.setAttribute("stroke", st.latC);
+}, 3800);
+</script>
+</body>
+</html>
