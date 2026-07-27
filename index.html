@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Freenetic — Pourquoi ça lag ? Le diagnostic réseau de votre Freebox, sur Mac.</title>
-<meta name="description" content="Freenetic répond à « pourquoi ça lag ? » en 5 secondes : débits par appareil de votre Freebox (répéteurs inclus), applications de votre Mac, latence et verdict clair. 100 % local.">
+<meta name="description" content="Freenetic répond à « pourquoi ça lag ? » en 5 secondes : débits par appareil de votre Freebox (répéteurs inclus), applications de votre Mac, latence et verdict clair. 100 % local. Disponible sur le Mac App Store.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:title" content="Freenetic — Pourquoi ça lag ?">
-<meta property="og:description" content="Le diagnostic réseau de votre Freebox, dans la barre de menus de votre Mac.">
+<meta property="og:description" content="Le diagnostic réseau de votre Freebox, dans la barre de menus de votre Mac. Disponible sur le Mac App Store.">
 <meta property="og:image" content="https://freenetic.henry.pro/img/scenario-reseau.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,16 @@ header .name{font-weight:700;font-size:19px;letter-spacing:.2px}
 header nav{margin-left:auto;display:flex;gap:26px;font-size:14.5px;color:var(--mut)}
 header nav a{text-decoration:none}
 header nav a:hover{color:var(--txt)}
+header .head-cta{margin-left:26px;font-size:14px;font-weight:650;color:var(--blue);border:1px solid rgba(79,141,249,.4);
+  border-radius:9px;padding:8px 15px;text-decoration:none;transition:background .15s ease,border-color .15s ease}
+header .head-cta:hover,header .head-cta:focus,header .head-cta:active{text-decoration:none;background:rgba(79,141,249,.14);border-color:rgba(79,141,249,.7);color:var(--txt)}
 @media(max-width:640px){header nav{display:none}}
+
+/* badge officiel Mac App Store */
+.badge{display:inline-block;line-height:0;text-decoration:none;border-radius:9px;transition:transform .15s ease,filter .15s ease}
+.badge:hover,.badge:focus,.badge:active{text-decoration:none}
+.badge:hover{transform:translateY(-2px);filter:drop-shadow(0 10px 26px rgba(255,255,255,.16))}
+.badge img{display:block;height:54px;width:auto}
 
 /* hero */
 .hero{padding:64px 0 24px;text-align:center}
@@ -176,18 +185,21 @@ footer a{color:var(--mut)}
     <a href="#prix">Prix</a>
     <a href="#faq">FAQ</a>
     <a href="#support">Support</a>
+    <a class="head-cta" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12">Télécharger</a>
   </nav>
 </header>
 
 <section class="hero">
-  <span class="kicker">Compatible Freebox · macOS 14+</span>
+  <span class="kicker">Disponible sur le Mac App Store · Compatible Freebox · macOS 14.6+</span>
   <h1>Pourquoi ça <em>lag&nbsp;?</em></h1>
   <p class="lead">La visio qui gèle, le stream qui rame, la game qui saccade&nbsp;: Freenetic vous donne le coupable en 5&nbsp;secondes, depuis la barre de menus de votre Mac. Qui sature votre Freebox, quelle application, ou si le problème est ailleurs.</p>
   <div class="cta">
-    <a class="btn primary" href="#support">Bientôt disponible&nbsp;→</a>
+    <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12">
+      <img src="img/mac-app-store-fr.svg" alt="Télécharger dans le Mac App Store" width="211" height="54">
+    </a>
     <a class="btn ghost" href="#scenarios">Voir l'app en situation</a>
   </div>
-  <p class="meta mono">Essai gratuit 7&nbsp;jours · 9,99&nbsp;€ une fois · 100&nbsp;% local</p>
+  <p class="meta mono">Téléchargement gratuit · 7&nbsp;jours d'essai complet · 9,99&nbsp;€ une fois · 100&nbsp;% local</p>
 
   <div class="shot">
     <img src="img/scenario-reseau.png" width="1802" height="1226"
@@ -291,7 +303,7 @@ footer a{color:var(--mut)}
 <section>
   <h2>Prêt en une minute.</h2>
   <div class="steps" style="margin-top:38px">
-    <div class="step"><h3>Associez</h3><p>Freenetic demande l'accès à votre Freebox&nbsp;; vous validez d'un geste sur l'écran de la box. Aucun mot de passe.</p></div>
+    <div class="step"><h3>Installez et associez</h3><p>Un clic sur le Mac App Store, puis Freenetic demande l'accès à votre Freebox&nbsp;: vous validez d'un geste sur l'écran de la box. Aucun mot de passe.</p></div>
     <div class="step"><h3>Laissez vivre</h3><p>L'app observe en continu depuis la barre de menus, avec un impact négligeable sur la box et le Mac.</p></div>
     <div class="step"><h3>Cliquez quand ça lag</h3><p>Le verdict, les coupables, la tendance. Cinq secondes, pas une commande de terminal.</p></div>
   </div>
@@ -301,8 +313,12 @@ footer a{color:var(--mut)}
   <div class="price">
     <span class="kicker">Un prix honnête</span>
     <div class="amount" style="margin-top:14px">9,99&nbsp;€ <small>une fois. Pour toujours.</small></div>
-    <p><strong>7 jours d'essai complet, gratuit</strong> — sans carte, sans compte, sans piège. L'app vous l'annonce elle-même au premier lancement, avec la date exacte de fin. Si elle ne vous sert pas, laissez simplement l'essai expirer.</p>
-    <a class="btn primary" href="#support">Bientôt disponible&nbsp;→</a>
+    <p><strong>Le téléchargement est gratuit, avec 7 jours d'essai complet</strong> — sans carte, sans compte, sans piège. L'app vous annonce elle-même les conditions au premier lancement, avec la date exacte de fin. Ensuite, un seul achat intégré débloque tout, à vie. Si elle ne vous sert pas, laissez simplement l'essai expirer.</p>
+    <div style="display:flex;justify-content:center;margin-top:4px">
+      <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12">
+        <img src="img/mac-app-store-fr.svg" alt="Télécharger dans le Mac App Store" width="211" height="54" loading="lazy">
+      </a>
+    </div>
     <div class="tags">
       <span class="tag">Pas d'abonnement</span>
       <span class="tag">Pas de compte</span>
@@ -329,22 +345,24 @@ footer a{color:var(--mut)}
     <details><summary>Que fait Freenetic que l'app Freebox Connect ne fait pas&nbsp;?</summary><p>L'historique dans le temps (et pas un instantané), le débit de chaque application de votre Mac, la latence intégrée au verdict, et une vraie app macOS dans la barre de menus. Freebox Connect reste très bien pour redémarrer la box.</p></details>
     <details><summary>Les captures d'écran de cette page sont-elles réelles&nbsp;?</summary><p>Oui — ce sont des captures de l'application, pixel pour pixel. Les scénarios sont rejoués avec des appareils fictifs («&nbsp;iPhone de Léa&nbsp;», «&nbsp;PS5&nbsp;»…) pour protéger la vie privée d'un vrai foyer, mais l'interface, les verdicts et les mesures sont exactement ce que vous verrez chez vous.</p></details>
     <details><summary>Pourquoi une extension système&nbsp;?</summary><p>C'est le seul mécanisme officiel d'Apple pour mesurer le trafic par application. Elle est facultative — tout le reste fonctionne sans — et se contente de compter des octets, localement.</p></details>
-    <details><summary>Combien ça coûte&nbsp;?</summary><p><strong>Essai complet et gratuit pendant 7&nbsp;jours</strong> — sans carte, sans compte. Ensuite, 9,99&nbsp;€ une seule fois pour débloquer à vie. Pas d'abonnement. Si l'app ne vous sert pas, laissez simplement l'essai expirer.</p></details>
-    <details><summary>Mac App Store ou téléchargement direct&nbsp;?</summary><p>Les deux sont à l'étude pour le lancement. Dans tous les cas&nbsp;: app signée, notarisée par Apple, et sandboxée.</p></details>
+    <details><summary>Comment j'active la mesure par application&nbsp;?</summary><p>Cliquez sur «&nbsp;Activer la mesure par application&nbsp;» dans l'app&nbsp;: un guide pas à pas s'ouvre. macOS demande ensuite votre autorisation explicite dans <strong>Réglages Système → Général → Ouverture de session et extensions → Extensions réseau</strong> (bouton ⓘ)&nbsp;: cochez Freenetic. C'est une exigence d'Apple, aucune app ne peut s'en passer — et vous pouvez la révoquer au même endroit à tout moment.</p></details>
+    <details><summary>Ma Freebox est derrière un autre routeur&nbsp;: ça marche&nbsp;?</summary><p>Oui, depuis la version&nbsp;1.1.2. Freenetic détecte que la box n'est pas joignable par son adresse publique (double NAT) et bascule automatiquement sur son adresse locale. Si l'association échouait chez vous auparavant, mettez à jour&nbsp;: c'était ça.</p></details>
+    <details><summary>Combien ça coûte&nbsp;?</summary><p><strong>Le téléchargement est gratuit, avec 7&nbsp;jours d'essai complet</strong> — sans carte, sans compte. Ensuite, un achat intégré de 9,99&nbsp;€, une seule fois, débloque l'app à vie. Pas d'abonnement. Si elle ne vous sert pas, laissez simplement l'essai expirer.</p></details>
+    <details><summary>Mac App Store ou téléchargement direct&nbsp;?</summary><p>Mac App Store. Freenetic y est publiée depuis juillet&nbsp;2026&nbsp;: mises à jour automatiques, app sandboxée, signée et vérifiée par Apple, et achat géré par votre compte Apple.</p></details>
   </div>
 </section>
 
 <section id="support">
   <h2>Support &amp; contact</h2>
-  <p class="sub" style="margin-bottom:18px">Une question, un bug, une Freebox exotique&nbsp;? Écrivez-moi — je réponds vite.</p>
+  <p class="sub" style="margin-bottom:18px">Une question, un bug, une Freebox exotique&nbsp;? Écrivez-moi — je réponds vite. Freenetic est développée par une seule personne&nbsp;: vos retours partent directement dans la version suivante.</p>
   <a class="btn primary" href="mailto:freenetic@henry.pro">freenetic@henry.pro</a>
 </section>
 </div>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Thibault Henry — Freenetic</span>
-    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. « Freebox » est une marque de Free SAS.</span>
+    <span>© 2026 Thibault Henry — Freenetic <span class="mono" style="color:var(--dim)">v1.1.2 · macOS 14.6+</span></span>
+    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. « Freebox » est une marque de Free SAS. Apple et Mac App Store sont des marques d'Apple Inc.</span>
   </div>
 </footer>
 
