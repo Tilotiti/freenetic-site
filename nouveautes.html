@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nouveautés — Freenetic</title>
+<meta name="description" content="L'historique des versions de Freenetic — les mêmes notes que sur le Mac App Store et dans l'app.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f26;--panel:#131b3f;--line:rgba(255,255,255,.08);--txt:#eef1fb;--mut:#9aa3c7;--dim:#5d6690;--blue:#4f8df9;--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.65}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 480px at 75% -10%, rgba(79,141,249,.14), transparent 65%)}
+.mono{font-family:"JetBrains Mono",monospace}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header{display:flex;align-items:center;gap:12px;padding:22px 0}
+header img{width:36px;height:36px}
+header .name{font-weight:700;font-size:19px}
+header a{color:inherit;text-decoration:none}
+header nav{margin-left:auto;font-size:14.5px;color:var(--mut)}
+header nav a:hover{color:var(--txt)}
+h1{font-size:clamp(34px,6vw,54px);font-weight:750;letter-spacing:-.02em;margin:34px 0 10px}
+.lead{color:var(--mut);margin-bottom:44px;max-width:56ch}
+.rel{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:26px 28px;margin-bottom:22px}
+.rel.latest{border-color:rgba(79,141,249,.45)}
+.ver{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.num{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:22px}
+.when{color:var(--dim);font-size:13.5px}
+.tagnew{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:var(--blue);border:1px solid rgba(79,141,249,.4);border-radius:99px;padding:3px 9px}
+.rel h3{font-size:16.5px;font-weight:700;margin:18px 0 6px}
+.rel p{color:var(--mut);font-size:15.5px;margin:10px 0}
+.rel p strong{color:var(--txt)}
+.badge{display:inline-block;line-height:0;text-decoration:none}
+.badge img{display:block;height:54px;width:auto}
+.cta{margin:40px 0 20px;text-align:center}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="icon.png" alt="">
+  <a class="name" href="index.html">Freenetic</a>
+  <nav><a href="index.html">← Retour au site</a></nav>
+</header>
+
+<h1>Nouveautés</h1>
+<p class="lead">Version par version — les mêmes notes que sur le Mac App Store, et que dans l'app (menu «&nbsp;Nouveautés de Freenetic&nbsp;»).</p>
+
+<div class="news">
+<!-- CHANGELOG:START -->
+<!-- CHANGELOG:END -->
+</div>
+
+<p class="cta"><a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12"><img src="img/mac-app-store-fr.svg" alt="Télécharger dans le Mac App Store"></a></p>
+</div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thibault Henry — Freenetic <span class="mono">v1.3.0 · macOS 14.6+</span></span>
+    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. «&nbsp;Freebox&nbsp;» est une marque de Free SAS. Apple et Mac App Store sont des marques d'Apple Inc.</span>
+  </div>
+</footer>
+</body>
+</html>
