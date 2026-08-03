@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidentialité — Freenetic</title>
+<meta name="description" content="Politique de confidentialité de Freenetic : aucune donnée collectée, tout reste sur votre appareil.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f26;--panel:#131b3f;--line:rgba(255,255,255,.08);--txt:#eef1fb;--mut:#9aa3c7;--dim:#5d6690;--blue:#4f8df9;--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.65}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 480px at 75% -10%, rgba(79,141,249,.14), transparent 65%)}
+.mono{font-family:"JetBrains Mono",monospace}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header{display:flex;align-items:center;gap:12px;padding:22px 0}
+header img{width:36px;height:36px}
+header .name{font-weight:700;font-size:19px}
+header a{color:inherit;text-decoration:none}
+header nav{margin-left:auto;font-size:14.5px;color:var(--mut)}
+header nav a:hover{color:var(--txt)}
+h1{font-size:clamp(34px,6vw,54px);font-weight:750;letter-spacing:-.02em;margin:34px 0 10px}
+.lead{color:var(--mut);margin-bottom:44px;max-width:56ch}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:26px 28px;margin-bottom:22px}
+.card h2{font-size:18px;font-weight:700;margin-bottom:10px}
+.card p{color:var(--mut);font-size:15.5px;margin:10px 0}
+.card p strong{color:var(--txt)}
+.card ul{color:var(--mut);font-size:15.5px;margin:10px 0 10px 20px}
+.card li{margin:6px 0}
+.updated{color:var(--dim);font-size:13px;margin-top:30px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="icon.png" alt="">
+  <a class="name" href="index.html">Freenetic</a>
+  <nav><a href="index.html">← Retour au site</a></nav>
+</header>
+
+<h1>Confidentialité</h1>
+<p class="lead">La version courte : Freenetic ne collecte rien. Pas de compte, pas de télémétrie, pas de publicité, pas de traceur. Tout reste sur votre appareil.</p>
+
+<div class="card">
+  <h2>Aucune donnée collectée</h2>
+  <p>Freenetic — sur Mac, iPhone et Android — fonctionne <strong>sans compte et sans serveur</strong>. Nous ne recevons, ne stockons et ne partageons aucune donnée vous concernant : ni vos mesures réseau, ni la liste de vos appareils, ni aucun identifiant. Il n'y a pas d'outil d'analyse d'audience, pas de SDK publicitaire, pas de traceur tiers.</p>
+</div>
+
+<div class="card">
+  <h2>Tout reste sur votre appareil</h2>
+  <ul>
+    <li>Les mesures de débit et l'historique sont stockés <strong>localement</strong>, dans une base de données sur votre appareil.</li>
+    <li>Le jeton d'appairage avec votre Freebox est conservé dans le <strong>stockage sécurisé du système</strong> (Keychain sur Apple, Keystore sur Android). Il ne quitte jamais votre appareil.</li>
+    <li>Désinstaller l'application efface l'intégralité de ces données. Vous pouvez aussi révoquer l'accès de Freenetic à tout moment depuis les réglages de Freebox&nbsp;OS.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>À qui l'application parle</h2>
+  <p>Les seules communications réseau de Freenetic sont strictement fonctionnelles&nbsp;:</p>
+  <ul>
+    <li><strong>Votre Freebox</strong> — en direct sur votre réseau local, ou à distance via le domaine chiffré de votre propre box (connexion TLS à certificat épinglé). C'est votre box qui répond, pas un serveur à nous.</li>
+    <li><strong>Apple ou Google</strong> — uniquement pour les achats intégrés, traités entièrement par l'App Store ou Google Play. Nous ne voyons aucune donnée de paiement.</li>
+    <li>Une <strong>vérification de connectivité</strong> anonyme (une simple requête sans aucune donnée personnelle) pour distinguer «&nbsp;la box ne répond pas&nbsp;» de «&nbsp;pas d'Internet&nbsp;».</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Contact</h2>
+  <p>Une question sur cette politique ou sur vos données&nbsp;? Écrivez à <a href="mailto:thibault@henry.pro" style="color:var(--blue)">thibault@henry.pro</a>.</p>
+</div>
+
+<p class="updated">Dernière mise à jour&nbsp;: 3 août 2026. Cette politique couvre Freenetic pour Mac, iPhone et Android.</p>
+
+<footer>
+  <div class="wrap">
+    <div>Freenetic — un projet indépendant. <a href="index.html">freenetic.henry.pro</a></div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
