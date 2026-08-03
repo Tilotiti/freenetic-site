@@ -86,8 +86,11 @@ def bump_footer(path, version):
 
 def main():
     entries = parse(SOURCE.read_text(encoding="utf-8"))
+    # Une section sans date est un brouillon : c'est la date, posée à la mise
+    # en ligne, qui publie. (« Activer une release » = la dater.)
+    entries = [e for e in entries if e["date"]]
     if not entries:
-        sys.exit("aucune section de version dans la source")
+        sys.exit("aucune section datée dans la source")
     splice(PAGE, render(entries))
     for page in (PAGE, INDEX):
         bump_footer(page, entries[0]["version"])
