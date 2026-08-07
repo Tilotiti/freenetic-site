@@ -40,15 +40,24 @@ def parse(text):
 
 
 BOLD = re.compile(r"\*\*(.+?)\*\*")
+NBSP = "&nbsp;"
+
+
+def frenchify(text):
+    """Espaces insécables françaises : avant : ; ! ? » % €, après «, autour du +."""
+    text = re.sub(r" \+ ", f"{NBSP}+{NBSP}", text)
+    text = re.sub(r" ([:;!?»%€])", rf"{NBSP}\1", text)
+    text = re.sub(r"« ", f"«{NBSP}", text)
+    return text
 
 
 def render_paragraph(par):
     full = re.fullmatch(r"\*\*([^*]+)\*\*", par.strip())
     if full:
-        return f"      <h3>{html.escape(full.group(1))}</h3>"
+        return f"      <h3>{frenchify(html.escape(full.group(1)))}</h3>"
     text = html.escape(" ".join(l.strip() for l in par.split("\n") if l.strip()))
     text = BOLD.sub(r"<strong>\1</strong>", text)
-    return f"      <p>{text}</p>"
+    return f"      <p>{frenchify(text)}</p>"
 
 
 def render(entries):
