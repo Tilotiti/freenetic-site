@@ -1,2 +1,5 @@
 .DS_Store
 .claude/
+.harness-mem/
+__pycache__/
+*.pyc
