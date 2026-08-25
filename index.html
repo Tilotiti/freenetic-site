@@ -421,7 +421,9 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
           <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547">
             <img src="img/app-store-fr.svg" alt="Télécharger Freenetic dans l'App Store" width="171" height="54">
           </a>
-          <button class="badge-soon" type="button" data-sheet="android" aria-label="Freenetic pour Android : rejoindre la bêta sur Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.2 13.9 12 3.6 21.8a1.7 1.7 0 0 1-.6-1.3V3.5c0-.5.2-1 .6-1.3z"/><path fill="#4285f4" d="M13.9 12 3.6 2.2c.4-.3 1-.4 1.5-.1l7.6 4.3z"/><path fill="#ea4335" d="M13.9 12 5.1 21.9c-.5.3-1.1.2-1.5-.1z"/><path fill="#fbbc04" d="m17.4 8.1 3.1 1.8c.9.5.9 1.7 0 2.2l-3.1 1.8-2.6-2z"/></svg><span class="txt"><small>Bêta ouverte sur</small><b>Google Play</b></span></button>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=pro.henry.freenetic">
+            <img src="img/google-play-fr.png" alt="Télécharger Freenetic sur Google Play" width="140" height="54">
+          </a>
         </div>
         <p class="fine">Téléchargement gratuit, 7&nbsp;jours d'essai complet sur Mac. Ensuite un achat unique à partir de 5,99&nbsp;€, à vie. Aucun compte, aucun cloud&nbsp;: rien ne sort de chez vous.</p>
       </div>
@@ -692,9 +694,13 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
         </div>
       </div>
       <div class="plat">
-        <div class="who"><b>Android</b><span class="state beta">BÊTA</span></div>
-        <p>Le test fermé est bouclé, la demande de publication est déposée chez Google. En attendant sa réponse, la bêta reste la porte d'entrée.</p>
-        <div class="act"><button class="badge-soon" type="button" data-sheet="android" aria-label="Freenetic pour Android : rejoindre la bêta sur Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.6 2.2 13.9 12 3.6 21.8a1.7 1.7 0 0 1-.6-1.3V3.5c0-.5.2-1 .6-1.3z"/><path fill="#4285f4" d="M13.9 12 3.6 2.2c.4-.3 1-.4 1.5-.1l7.6 4.3z"/><path fill="#ea4335" d="M13.9 12 5.1 21.9c-.5.3-1.1.2-1.5-.1z"/><path fill="#fbbc04" d="m17.4 8.1 3.1 1.8c.9.5.9 1.7 0 2.2l-3.1 1.8-2.6-2z"/></svg><span class="txt"><small>Bêta ouverte sur</small><b>Google Play</b></span></button></div>
+        <div class="who"><b>Android</b><span class="state ok">DISPONIBLE</span></div>
+        <p>Sur le Play&nbsp;Store depuis août&nbsp;2026, après un test fermé de 448 volontaires — merci à eux. Android&nbsp;7 ou plus récent.</p>
+        <div class="act">
+          <a class="badge" href="https://play.google.com/store/apps/details?id=pro.henry.freenetic">
+            <img src="img/google-play-fr.png" alt="Télécharger Freenetic sur Google Play" width="140" height="54" loading="lazy">
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -857,8 +863,8 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
         <div class="ans"><p><a href="https://apps.apple.com/fr/app/freenetic/id6789539547">Sur l'App&nbsp;Store</a>, depuis août&nbsp;2026. iOS&nbsp;16.4 ou plus récent. Les acheteurs du pack l'ont incluse&nbsp;: connectez-vous avec le même compte Apple, il n'y a rien à repayer.</p></div>
       </details>
       <details>
-        <summary>Comment rejoindre la bêta Android&nbsp;?</summary>
-        <div class="ans"><p>En deux étapes&nbsp;: rejoindre le groupe des testeurs avec le compte Google de votre téléphone, puis ouvrir le lien d'installation reçu par e-mail. Le quota de testeurs exigé par Google est atteint — merci aux volontaires — et la demande de publication est déposée. La bêta reste le seul accès tant que Google n'a pas répondu.</p><p>Et pour suivre ce que deviennent les retours&nbsp;: chaque bug ou idée a <a href="https://github.com/Tilotiti/freenetic-site/issues">son ticket public</a>, avec son état d'avancement — lisible sans compte.</p></div>
+        <summary>Où trouver la version Android&nbsp;?</summary>
+        <div class="ans"><p><a href="https://play.google.com/store/apps/details?id=pro.henry.freenetic">Sur Google&nbsp;Play</a>, depuis août&nbsp;2026. Android&nbsp;7 ou plus récent. La bêta qui a précédé la sortie doit tout aux 448 volontaires du test fermé&nbsp;; leur groupe continue de recevoir les versions en avance.</p><p>Et pour suivre ce que deviennent les retours&nbsp;: chaque bug ou idée a <a href="https://github.com/Tilotiti/freenetic-site/issues">son ticket public</a>, avec son état d'avancement — lisible sans compte.</p></div>
       </details>
       <details>
         <summary>Mac App Store ou téléchargement direct&nbsp;?</summary>
@@ -897,22 +903,6 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
   </div>
 </footer>
 
-<dialog class="sheet" id="sheet-android" aria-labelledby="t-android">
-  <div class="box">
-    <h2 id="t-android">Installer la bêta Android</h2>
-    <p>Deux étapes, une seule fois. Il vous faut un téléphone Android et un compte&nbsp;Google.</p>
-    <ol>
-      <li><strong>Rejoignez le groupe des testeurs</strong> avec le compte Google de votre téléphone. C'est lui qui vous ouvre l'accès à l'application, et c'est par lui qu'arrivent les annonces de nouvelles versions.</li>
-      <li><strong>Ouvrez la page de la bêta</strong>, depuis le téléphone, puis acceptez d'y participer&nbsp;: le Play&nbsp;Store s'ouvre alors sur Freenetic. Ce lien ne marche qu'une fois l'étape&nbsp;1 faite — sans le groupe, Google répond que vous n'êtes pas dans le programme.</li>
-    </ol>
-    <p>Le quota de testeurs exigé par Google est atteint et la demande de publication est déposée&nbsp;: la sortie publique sur le Play&nbsp;Store approche. Merci à celles et ceux qui ont tenu les quatorze jours.</p>
-    <div class="acts">
-      <a class="btn solid" href="https://groups.google.com/a/henry.pro/g/freenetic-beta">1. Rejoindre le groupe</a>
-      <a class="btn line" href="https://play.google.com/apps/testing/pro.henry.freenetic">2. Ouvrir la bêta</a>
-      <button class="btn line" type="button" data-close>Fermer</button>
-    </div>
-  </div>
-</dialog>
 
 <script>
 /* --------------------------------------------------------------------------
