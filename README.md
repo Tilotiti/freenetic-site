@@ -1,6 +1,6 @@
 # Freenetic — retours & roadmap
 
-**[Freenetic](https://freenetic.henry.pro)** répond à une question simple : *pourquoi ça rame, là, maintenant ?* L'app interroge votre Freebox et nomme le coupable en une phrase — « Download saturé (94 %) — Téléviseur » — au lieu de vous laisser déchiffrer des graphiques. Disponible sur **Mac** (App Store), en bêta sur **iPhone** (TestFlight) et **Android** (Play Store). Tout se passe chez vous : pas de compte, pas de cloud, pas de télémétrie.
+**[Freenetic](https://freenetic.henry.pro)** répond à une question simple : *pourquoi ça rame, là, maintenant ?* L'app interroge votre Freebox et nomme le coupable en une phrase — « Download saturé (94 %) — Téléviseur » — au lieu de vous laisser déchiffrer des graphiques. En vente sur **Mac** (Mac App Store), **iPhone et iPad** (App Store) et **Android** (Google Play). Tout se passe chez vous : pas de compte, pas de cloud, pas de télémétrie.
 
 ## Pourquoi ce dépôt ?
 
@@ -29,13 +29,15 @@ Un ticket **fermé** = terminé. L'avancement se poste en commentaire dans le ti
 - **Avec un compte GitHub** : [ouvrez une issue](https://github.com/Tilotiti/freenetic-site/issues/new) ou commentez un ticket existant. Une capture d'écran vaut dix paragraphes ; votre modèle de Freebox et d'appareil aident beaucoup.
 - **Sans compte** : écrivez à **freenetic@henry.pro**. Je transforme votre retour en ticket (anonymisé), et vous recevez le lien pour le suivre.
 
-## Rejoindre la bêta
+## Télécharger l'app
 
-- **iPhone** : [bêta publique TestFlight](https://testflight.apple.com/join/t9hB3wAF)
-- **Android** : [rejoignez le groupe des testeurs](https://groups.google.com/a/henry.pro/g/freenetic-beta) avec le compte Google de votre téléphone, puis [ouvrez la page de la bêta](https://play.google.com/apps/testing/pro.henry.freenetic) — et gardez l'app installée 14 jours : Google exige douze testeurs restés inscrits deux semaines avant d'autoriser la publication.
-- **Mac** : [déjà disponible sur l'App Store](https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12), 7 jours d'essai complet.
+- **Mac** : [sur le Mac App Store](https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12), 7 jours d'essai complet.
+- **iPhone & iPad** : [sur l'App Store](https://apps.apple.com/fr/app/freenetic/id6789539547), une seule fiche pour les deux.
+- **Android** : [sur Google Play](https://play.google.com/store/apps/details?id=pro.henry.freenetic).
 
-Le groupe Google des testeurs sert à deux choses : ouvrir l'accès à la bêta Android, et diffuser les annonces de nouvelles versions. Le suivi, lui, se passe ici.
+Le pack acheté chez Apple couvre Mac, iPhone et iPad avec le même compte, sans repayer.
+
+Le [groupe Google des testeurs](https://groups.google.com/a/henry.pro/g/freenetic-beta) reste ouvert : il reçoit les versions en avance et les annonces de sortie. Le suivi des retours, lui, se passe ici.
 
 ---
 
