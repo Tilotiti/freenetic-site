@@ -104,7 +104,7 @@ h3{font-size:20px;line-height:1.25;letter-spacing:-.012em;font-variation-setting
   font-variation-settings:"opsz" 24,"wght" 360;max-width:46ch;text-wrap:pretty}
 .sub{color:var(--mut);font-size:17px;max-width:62ch;margin-top:16px;text-wrap:pretty}
 strong{color:var(--txt);font-variation-settings:"opsz" 16,"wght" 620}
-section[id]{scroll-margin-top:78px}
+section[id],[id^="t-"]{scroll-margin-top:78px}
 
 /* chapeau de section : le titre tient la gauche, le texte prend la droite,
    pour que la largeur pleine des tableaux et listes ne pende pas dans le vide */
@@ -675,7 +675,7 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
     </div>
 
     <div class="plats">
-      <div class="plat">
+      <div class="plat" id="t-mac">
         <div class="who"><b>Mac</b><span class="state ok">DISPONIBLE</span></div>
         <p>Sur le Mac App Store depuis juillet&nbsp;2026. macOS&nbsp;14.6 ou plus récent, 7&nbsp;jours d'essai complet.</p>
         <div class="act">
@@ -684,8 +684,8 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
           </a>
         </div>
       </div>
-      <div class="plat">
-        <div class="who"><b>iPhone &amp; iPad</b><span class="state ok">DISPONIBLE</span></div>
+      <div class="plat" id="t-iphone">
+        <div class="who" id="t-ipad"><b>iPhone &amp; iPad</b><span class="state ok">DISPONIBLE</span></div>
         <p>Sur l'App&nbsp;Store depuis août&nbsp;2026, l'iPad depuis le 24. iOS ou iPadOS&nbsp;16.4 ou plus récent. Une seule fiche pour les deux, et le pack acheté sur Mac y est déjà inclus — même compte Apple, rien à repayer.</p>
         <div class="act">
           <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547">
@@ -693,7 +693,7 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
           </a>
         </div>
       </div>
-      <div class="plat">
+      <div class="plat" id="t-android">
         <div class="who"><b>Android</b><span class="state ok">DISPONIBLE</span></div>
         <p>Sur le Play&nbsp;Store depuis août&nbsp;2026, après un test fermé de 448 volontaires — merci à eux. Android&nbsp;7 ou plus récent.</p>
         <div class="act">
