@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nouveautés — Freenetic</title>
-<meta name="description" content="L'historique des versions de Freenetic — les mêmes notes que sur le Mac App Store et dans l'app.">
+<meta name="description" content="L'historique des versions de Freenetic — Mac, iPhone, iPad et Android, avec les mêmes notes que sur les stores.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,16 +27,18 @@ h1{font-size:clamp(34px,6vw,54px);font-weight:750;letter-spacing:-.02em;margin:3
 .lead{color:var(--mut);margin-bottom:44px;max-width:56ch}
 .rel{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:26px 28px;margin-bottom:22px}
 .rel.latest{border-color:rgba(79,141,249,.45)}
-.ver{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.ver{display:flex;align-items:baseline;gap:8px 12px;flex-wrap:wrap;margin-bottom:6px}
 .num{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:22px}
 .when{color:var(--dim);font-size:13.5px}
 .tagnew{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:var(--blue);border:1px solid rgba(79,141,249,.4);border-radius:99px;padding:3px 9px}
+.plat{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:var(--mut);border:1px solid var(--line);border-radius:99px;padding:3px 9px;white-space:nowrap}
 .rel h3{font-size:16.5px;font-weight:700;margin:18px 0 6px}
 .rel p{color:var(--mut);font-size:15.5px;margin:10px 0}
 .rel p strong{color:var(--txt)}
 .badge{display:inline-block;line-height:0;text-decoration:none}
 .badge img{display:block;height:54px;width:auto}
-.cta{margin:40px 0 20px;text-align:center}
+.cta{margin:40px 0 20px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.badge:hover,.badge:focus,.badge:active{text-decoration:none}
 footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;color:var(--dim);font-size:13px}
 footer .wrap{display:flex;flex-direction:column;gap:8px}
 </style>
@@ -50,12 +52,20 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
 </header>
 
 <h1>Nouveautés</h1>
-<p class="lead">Version par version — les mêmes notes que sur le Mac App Store, et que dans l'app (menu «&nbsp;Nouveautés de Freenetic&nbsp;»).</p>
+<p class="lead">Version par version, sur toutes les plateformes — l'étiquette dit laquelle. Ce sont les mêmes notes que sur les stores&nbsp;; sur Mac, vous les retrouvez aussi dans l'app (menu «&nbsp;Nouveautés de Freenetic&nbsp;»).</p>
 
 <div class="news">
 <!-- CHANGELOG:START -->
     <article class="rel latest">
-      <div class="ver"><span class="num">1.7.0</span><span class="when">25 août 2026</span><span class="tagnew">DERNIÈRE</span></div>
+      <div class="ver"><span class="num">1.2.0</span><span class="plat">iPhone · iPad · Android</span><span class="when">28 août 2026</span><span class="tagnew">DERNIÈRE</span></div>
+      <h3>Freenetic s&#x27;installe sur iPad</h3>
+      <p>Le paysage est pris en charge, en plein écran comme en fenêtre. L&#x27;accueil occupe toute la largeur&nbsp;: appareils sur deux ou trois colonnes, graphiques élargis, textes agrandis pour une lecture à distance d&#x27;iPad.</p>
+      <h3>Les tablettes Android aussi</h3>
+      <p>Même passe sur Google&nbsp;Play&nbsp;: accueil en pleine largeur en paysage, deux ou trois colonnes d&#x27;appareils, graphiques élargis et textes agrandis sur grand écran.</p>
+    </article>
+
+    <article class="rel">
+      <div class="ver"><span class="num">1.7.0</span><span class="plat">Mac</span><span class="when">25 août 2026</span></div>
       <h3>La latence nomme sa piste</h3>
       <p>Jusqu&#x27;ici, quand la latence montait sur une ligne calme, Freenetic disait ce que ce n&#x27;était pas&nbsp;: «&nbsp;Le problème n&#x27;est probablement pas la bande passante.&nbsp;» L&#x27;app compare maintenant la réponse de la box à celle d&#x27;internet, lit le signal Wi-Fi et repère les envois discrets, puis donne une piste&nbsp;: «&nbsp;Le Wi-Fi capte mal ici (−76&nbsp;dB), rapprochez-vous de la box&nbsp;», «&nbsp;Un envoi en arrière-plan (NAS) remplit la file d&#x27;attente de la box&nbsp;», ou «&nbsp;La box répond vite&nbsp;: le problème est côté ligne ou fournisseur&nbsp;». Une phrase, un suspect, une vérification — et quand l&#x27;envoi vient du Mac lui-même, l&#x27;app fautive est nommée, pas la machine.</p>
       <h3>Le passé s&#x27;explique aussi</h3>
@@ -65,7 +75,21 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.6.2</span><span class="when">17 août 2026</span></div>
+      <div class="ver"><span class="num">1.1.0</span><span class="plat">iPhone · Android</span><span class="when">25 août 2026</span></div>
+      <h3>La latence nomme sa piste</h3>
+      <p>Quand la latence monte sur une ligne calme, l&#x27;app donne désormais une piste&nbsp;: Wi-Fi qui capte mal, envoi en arrière-plan, file d&#x27;attente de la box, ou ligne. En direct, et sur les épisodes passés — touchez un créneau de l&#x27;historique des 24&nbsp;heures pour lire ce qui s&#x27;est passé, et pourquoi.</p>
+      <h3>Android sort de bêta</h3>
+      <p>L&#x27;app Android est désormais publique sur le Play&nbsp;Store — plus besoin d&#x27;être inscrit au programme de test pour l&#x27;installer.</p>
+    </article>
+
+    <article class="rel">
+      <div class="ver"><span class="num">1.0.0</span><span class="plat">iPhone</span><span class="when">17 août 2026</span></div>
+      <h3>Freenetic arrive sur iPhone</h3>
+      <p>Première version publique sur l&#x27;App&nbsp;Store&nbsp;: le verdict en une phrase, chaque appareil du foyer avec son débit en direct, et la carte «&nbsp;cet appareil&nbsp;» qui mesure ce que votre iPhone reçoit là où vous êtes. Si vous avez déjà débloqué le pack sur Mac, connectez-vous avec le même compte Apple&nbsp;: il n&#x27;y a rien à repayer.</p>
+    </article>
+
+    <article class="rel">
+      <div class="ver"><span class="num">1.6.2</span><span class="plat">Mac</span><span class="when">17 août 2026</span></div>
       <h3>Choisissez l&#x27;unité des débits</h3>
       <p>Un nouveau réglage affiche les débits en Mbit/s ou en Mo/s, partout dans l&#x27;app&nbsp;: liste des appareils, graphiques, barre des menus, fiches. Le Mbit/s reste le défaut, c&#x27;est l&#x27;unité des offres, donc celle qui se compare à votre ligne. Le Mo/s parle mieux d&#x27;un téléchargement&nbsp;: huit fois plus petit, même débit.</p>
       <h3>Un répéteur câblé se dit câblé</h3>
@@ -73,7 +97,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.6.1</span><span class="when">15 août 2026</span></div>
+      <div class="ver"><span class="num">1.6.1</span><span class="plat">Mac</span><span class="when">15 août 2026</span></div>
       <h3>Une latence enfin honnête</h3>
       <p>Les pastilles Box et Internet affichaient des valeurs bien plus hautes que la réalité — jusqu&#x27;à dix fois le vrai chiffre. Elles mesurent désormais un vrai ping réseau, le même que celui d&#x27;un terminal. Si votre réseau bloque ce type de mesure, l&#x27;app revient d&#x27;elle-même à l&#x27;ancienne méthode.</p>
       <h3>L&#x27;icône masquée le reste</h3>
@@ -83,7 +107,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.6.0</span><span class="when">7 août 2026</span></div>
+      <div class="ver"><span class="num">1.6.0</span><span class="plat">Mac</span><span class="when">7 août 2026</span></div>
       <h3>Votre réseau vous suit en déplacement</h3>
       <p>Loin de chez vous, Freenetic garde un œil sur la maison. L&#x27;app bascule automatiquement sur l&#x27;accès à distance de votre Freebox&nbsp;: l&#x27;icône devient une maison dans la barre des menus, et vous retrouvez l&#x27;état de la ligne, les appareils connectés et l&#x27;historique des incidents — où que vous soyez. De retour chez vous, tout redevient normal, sans rien toucher.</p>
       <p>Et pas besoin d&#x27;attendre d&#x27;être parti pour savoir si ça marchera&nbsp;: depuis chez vous, les Réglages vérifient que votre box est prête — et si elle ne l&#x27;est pas, l&#x27;app vous dit pourquoi et quoi activer. Hors de chez vous, en cas de blocage, l&#x27;erreur distingue enfin une box injoignable d&#x27;un accès refusé.</p>
@@ -94,7 +118,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.5.0</span><span class="when">7 août 2026</span></div>
+      <div class="ver"><span class="num">1.5.0</span><span class="plat">Mac</span><span class="when">7 août 2026</span></div>
       <h3>Freenetic consomme beaucoup moins</h3>
       <p>Surveiller votre réseau ne doit pas peser dessus — ni sur votre Mac. Les lectures d&#x27;historique du tableau de bord ont quitté le fil principal, et l&#x27;app se met en veilleuse quand sa fenêtre est fermée. Résultat mesuré&nbsp;: d&#x27;environ 47&nbsp;% de processeur à moins de 10&nbsp;% dans les mêmes conditions.</p>
       <h3>Deux façons de débloquer l&#x27;app</h3>
@@ -106,7 +130,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.4.0</span><span class="when">31 juillet 2026</span></div>
+      <div class="ver"><span class="num">1.4.0</span><span class="plat">Mac</span><span class="when">31 juillet 2026</span></div>
       <h3>Vos appareils derrière un répéteur retrouvent leur vraie place</h3>
       <p>Un iPhone connecté au répéteur du salon n&#x27;est pas «&nbsp;branché en Ethernet&nbsp;». Depuis la 1.2.0, Freenetic pouvait pourtant l&#x27;afficher ainsi — et, du même coup, ne plus mesurer son débit. C&#x27;est corrigé&nbsp;: chaque appareil derrière un répéteur réapparaît en Wi-Fi, avec ses débits en direct. Merci aux utilisateurs qui l&#x27;ont signalé — le correctif est parti le jour même.</p>
       <h3>L&#x27;app vous raconte ses nouveautés</h3>
@@ -114,7 +138,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.3.0</span><span class="when">30 juillet 2026</span></div>
+      <div class="ver"><span class="num">1.3.0</span><span class="plat">Mac</span><span class="when">30 juillet 2026</span></div>
       <h3>L&#x27;historique de l&#x27;état de votre ligne</h3>
       <p>On ouvre Freenetic après le lag, pas pendant. Une barre de 24 heures s&#x27;affiche désormais sous le verdict&nbsp;: elle rejoue l&#x27;état calculé de votre ligne minute par minute, et marque chaque incident à sa place. Sous la barre, une phrase résume la journée — «&nbsp;3 pointes de 15 s ou plus (1 à saturation) · 12 pointes brèves&nbsp;».</p>
       <p>Survolez un incident&nbsp;: l&#x27;app rejoue le verdict de cet instant précis. Vous retrouvez la phrase qui se serait affichée à ce moment-là, les appareils en cause et leur débit. «&nbsp;Rien d&#x27;anormal&nbsp;» ne veut plus dire «&nbsp;il ne s&#x27;est rien passé&nbsp;».</p>
@@ -129,7 +153,7 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.2.0</span><span class="when">juillet 2026</span></div>
+      <div class="ver"><span class="num">1.2.0</span><span class="plat">Mac</span><span class="when">juillet 2026</span></div>
       <h3>Votre trafic dans le Dock</h3>
       <p>L&#x27;icône de Freenetic peut désormais afficher votre trafic en direct&nbsp;: la dernière minute, le téléchargement au-dessus de l&#x27;axe, l&#x27;envoi en dessous. La couleur suit la charge réelle de votre ligne — elle passe à l&#x27;orange dès 70&nbsp;% d&#x27;occupation, au rouge à partir de 90&nbsp;%. Un coup d&#x27;œil au Dock suffit à savoir si votre connexion est saturée, et dans quel sens.</p>
       <p>Vous pouvez aussi masquer complètement l&#x27;icône du Dock si vous préférez ne garder que celle de la barre des menus. Réglages → Fenêtre → Icône du Dock.</p>
@@ -142,23 +166,27 @@ footer .wrap{display:flex;flex-direction:column;gap:8px}
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.1.3</span><span class="when">juillet 2026</span></div>
+      <div class="ver"><span class="num">1.1.3</span><span class="plat">Mac</span><span class="when">juillet 2026</span></div>
       <p>La Freebox est désormais trouvée même sous VPN ou avec le relais privé Apple activé — c&#x27;était la cause de la quasi-totalité des «&nbsp;Freebox introuvable&nbsp;» signalés au lancement.</p>
     </article>
 
     <article class="rel">
-      <div class="ver"><span class="num">1.1.2</span><span class="when">juillet 2026</span></div>
+      <div class="ver"><span class="num">1.1.2</span><span class="plat">Mac</span><span class="when">juillet 2026</span></div>
       <p>Freebox derrière un autre routeur&nbsp;: en double NAT, l&#x27;app bascule automatiquement sur l&#x27;adresse locale de la box. L&#x27;association fonctionne enfin du premier coup.</p>
     </article>
 <!-- CHANGELOG:END -->
 </div>
 
-<p class="cta"><a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12"><img src="img/mac-app-store-fr.svg" alt="Télécharger dans le Mac App Store"></a></p>
+<div class="cta">
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12"><img src="img/mac-app-store-fr.svg" alt="Télécharger Freenetic dans le Mac App Store" width="211" height="54"></a>
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547"><img src="img/app-store-fr.svg" alt="Télécharger Freenetic dans l'App Store" width="171" height="54"></a>
+  <a class="badge" href="https://play.google.com/store/apps/details?id=pro.henry.freenetic"><img src="img/google-play-fr.png" alt="Télécharger Freenetic sur Google Play" width="140" height="54"></a>
+</div>
 </div>
 <footer>
   <div class="wrap">
-    <span>© 2026 Thibault Henry — Freenetic <span class="mono">v1.7.0 · macOS 14.6+</span></span>
-    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. «&nbsp;Freebox&nbsp;» est une marque de Free SAS. Apple et Mac App Store sont des marques d'Apple Inc.</span>
+    <span>© 2026 Thibault Henry — Freenetic <span class="mono">Mac v1.7.0 · mobile v1.2.0</span></span>
+    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. «&nbsp;Freebox&nbsp;» est une marque de Free SAS. Apple, App Store et Mac App Store sont des marques d'Apple Inc. Google Play est une marque de Google LLC.</span>
   </div>
 </footer>
 </body>
