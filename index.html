@@ -3,13 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Freenetic — Ça rame&nbsp;? Voilà qui.</title>
+<title>Freenetic — Votre Freebox rame&nbsp;? Voilà qui.</title>
 <meta name="description" content="Freenetic interroge votre Freebox et répond par une phrase&nbsp;: «&nbsp;Download saturé (94 %) — Téléviseur&nbsp;». Cinq secondes, un nom, et la discussion est close. Mac, iPhone, iPad et Android. Un achat unique à partir de 5,99 €, rien ne sort de chez vous.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://freenetic.henry.pro/">
-<meta property="og:title" content="Freenetic — Ça rame&nbsp;? Voilà qui.">
+<link rel="canonical" href="https://freenetic.henry.pro/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Freenetic",
+  "url": "https://freenetic.henry.pro/",
+  "image": "https://freenetic.henry.pro/icon-large.png",
+  "description": "Freenetic interroge votre Freebox et répond par une phrase qui nomme l'appareil ou l'application qui sature la ligne. Mac, iPhone, iPad et Android.",
+  "inLanguage": "fr",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS 14.6, iOS 16.4, iPadOS 16.4, Android 7",
+  "softwareVersion": "1.7.0",
+  "author": {"@type": "Person", "name": "Thibault Henry", "email": "freenetic@henry.pro"},
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "5.99",
+    "highPrice": "9.99",
+    "offerCount": "3"
+  },
+  "installUrl": [
+    "https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12",
+    "https://apps.apple.com/fr/app/freenetic/id6789539547",
+    "https://play.google.com/store/apps/details?id=pro.henry.freenetic"
+  ],
+  "sameAs": [
+    "https://apps.apple.com/fr/app/freenetic/id6789539547",
+    "https://play.google.com/store/apps/details?id=pro.henry.freenetic",
+    "https://github.com/Tilotiti/freenetic-site"
+  ]
+}
+</script>
+<meta property="og:title" content="Freenetic — Votre Freebox rame&nbsp;? Voilà qui.">
 <meta property="og:description" content="Votre Freebox sait qui mange la ligne. Elle ne le dit pas. Freenetic le dit, en français, en cinq secondes.">
 <meta property="og:image" content="https://freenetic.henry.pro/img/scenario-reseau.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -341,6 +374,17 @@ figcaption{font-size:13px;color:var(--dim);margin-top:14px;text-wrap:pretty}
 
 /* ---------- FAQ ---------- */
 #faq h2{max-width:20ch}
+/* ---------- symptômes : trois portes d'entrée ---------- */
+.syms{margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.sym{display:block;border:1px solid var(--rule);background:var(--panel);border-radius:var(--r);padding:24px 26px;
+  color:var(--txt);text-decoration:none;transition:transform .15s,border-color .15s,background .15s}
+.sym:hover,.sym:focus,.sym:active{text-decoration:none}
+.sym:hover,.sym:focus-visible{transform:translateY(-2px);border-color:var(--rule-2);background:var(--bg-lift)}
+.sym b{display:block;font-size:19px;line-height:1.2;letter-spacing:-.015em;font-variation-settings:"opsz" 20,"wght" 640}
+.sym span{display:block;color:var(--mut);font-size:15px;margin-top:9px;text-wrap:pretty}
+.sym em{display:block;margin-top:14px;color:var(--blue);font-style:normal;font-size:14px}
+@media(max-width:760px){.syms{grid-template-columns:1fr}}
+
 .faq{margin-top:34px;max-width:880px}
 .faq h3{color:var(--dim);font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;
   font-variation-settings:"opsz" 12,"wght" 600;margin:38px 0 6px}
@@ -412,7 +456,7 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <h1>Ça rame. Et là, tout le monde accuse tout le monde.</h1>
+        <h1>La Freebox rame. Et là, tout le monde accuse tout le monde.</h1>
         <p class="lead">Freenetic interroge votre Freebox et vous répond par une phrase, pas par un graphique&nbsp;: <strong>«&nbsp;Download saturé (94&nbsp;%) — Téléviseur&nbsp;»</strong>. Cinq secondes, un nom, et la discussion est close.</p>
         <div class="cta">
           <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12">
@@ -798,6 +842,35 @@ dialog.sheet::backdrop{background:rgba(5,7,9,.72);backdrop-filter:blur(3px)}
         <p>Freenetic est écrite par une seule personne, ce qui a un défaut et un avantage. L'avantage&nbsp;: il n'y a personne entre votre e-mail et la correction. Les notes de version sont publiques, dans le détail.</p>
       </div>
       <a class="btn line" href="nouveautes.html">Toutes les nouveautés&nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<div class="axis"></div>
+
+<!-- ====================== SYMPTÔMES ====================== -->
+<section id="symptomes">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Ça rame comment, exactement&nbsp;?</h2>
+      <p class="sub">Trois pannes qui se ressemblent vues du canapé, et qui ne se réparent pas pareil. Chaque page dit ce que la Freebox affiche, ce que Freenetic en fait, et ce que vous faites ensuite.</p>
+    </div>
+    <div class="syms">
+      <a class="sym" href="freebox-lente-le-soir.html">
+        <b>Freebox lente le soir</b>
+        <span>À 21&nbsp;h, quelqu'un chez vous mange la ligne. Le téléviseur, la console, une sauvegarde. L'app le nomme.</span>
+        <em>Lire la page&nbsp;→</em>
+      </a>
+      <a class="sym" href="visio-saccade-freebox.html">
+        <b>La visio saccade</b>
+        <span>C'est souvent vous qui envoyez&nbsp;: une photothèque, un NAS. Sur Mac, l'app dit quelle application.</span>
+        <em>Lire la page&nbsp;→</em>
+      </a>
+      <a class="sym" href="wifi-faible-freebox.html">
+        <b>Le Wi-Fi capte mal dans une pièce</b>
+        <span>La ligne est vide et tout saccade. Le téléphone mesure le signal là où vous êtes assis.</span>
+        <em>Lire la page&nbsp;→</em>
+      </a>
     </div>
   </div>
 </section>

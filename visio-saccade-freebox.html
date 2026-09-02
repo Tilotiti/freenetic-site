@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La visio saccade sur Freebox : c'est souvent vous qui envoyez — Freenetic</title>
+<meta name="description" content="Teams, FaceTime ou Meet se figent alors que Netflix marche à côté ? Un envoi en arrière-plan remplit la ligne. Freenetic nomme l'appareil, et sur Mac l'application.">
+<link rel="canonical" href="https://freenetic.henry.pro/visio-saccade-freebox.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freenetic.henry.pro/visio-saccade-freebox.html">
+<meta property="og:title" content="La visio saccade sur Freebox : c'est souvent vous qui envoyez">
+<meta property="og:description" content="Teams, FaceTime ou Meet se figent alors que Netflix marche à côté ? Un envoi en arrière-plan remplit la ligne. Freenetic nomme l'appareil, et sur Mac l'application.">
+<meta property="og:image" content="https://freenetic.henry.pro/img/scenario-local.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f26;--panel:#131b3f;--line:rgba(255,255,255,.08);--txt:#eef1fb;--mut:#9aa3c7;--dim:#5d6690;--blue:#4f8df9;--green:#3ddc97;--amber:#f5a524;--red:#f2555a;--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.65;font-size:16.5px}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 480px at 75% -10%, rgba(79,141,249,.14), transparent 65%)}
+.mono{font-family:"JetBrains Mono",monospace;font-feature-settings:"tnum"}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header{display:flex;align-items:center;gap:12px;padding:22px 0}
+header img{width:36px;height:36px}
+header .name{font-weight:700;font-size:19px}
+header a{color:inherit;text-decoration:none}
+header nav{margin-left:auto;font-size:14.5px;color:var(--mut)}
+header nav a:hover{color:var(--txt)}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:34px}
+h1{font-size:clamp(32px,5.6vw,50px);font-weight:750;letter-spacing:-.022em;line-height:1.08;margin:10px 0 14px;text-wrap:balance}
+.lead{color:var(--mut);font-size:clamp(17px,2vw,19.5px);line-height:1.5;margin-bottom:34px;max-width:60ch;text-wrap:pretty}
+h2{font-size:clamp(22px,3.2vw,29px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:46px 0 12px;text-wrap:balance}
+p,li{color:var(--mut);text-wrap:pretty}
+p{margin:12px 0}
+strong{color:var(--txt);font-weight:650}
+main a{color:var(--blue)}
+ul.list{list-style:disc;padding-left:22px;margin:14px 0}
+ul.list li{margin:9px 0}
+ul.list li b{color:var(--txt);font-weight:650}
+.verdict{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:22px 26px;margin:24px 0}
+.verdict q{display:block;quotes:none;font-size:clamp(19px,2.6vw,25px);line-height:1.3;font-weight:650;letter-spacing:-.015em}
+.verdict.r q{color:var(--red)}.verdict.o q{color:var(--amber)}.verdict.g q{color:var(--green)}
+.verdict p{margin:8px 0 0;font-size:15.5px}
+.shot{display:grid;grid-template-columns:minmax(0,1fr) 224px;gap:28px;align-items:start;margin:22px 0}
+.shot img{width:100%;height:auto;border-radius:20px;border:1px solid var(--line);display:block}
+.shot.mac{grid-template-columns:1fr}
+.shot figcaption{color:var(--dim);font-size:13.5px;margin-top:8px}
+@media(max-width:640px){.shot{grid-template-columns:1fr}.shot img{max-width:260px}.shot.mac img{max-width:none}}
+.scale{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+.scale th,.scale td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--line);color:var(--mut);vertical-align:top}
+.scale th{color:var(--txt);font-weight:600;white-space:nowrap}
+.req{border-left:3px solid var(--blue);padding:4px 0 4px 18px;margin:32px 0;font-size:15.5px}
+.cta{margin:40px 0 14px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.badge{display:inline-block;line-height:0;text-decoration:none}
+.badge:hover,.badge:focus,.badge:active{text-decoration:none}
+.badge img{display:block;height:54px;width:auto}
+.fine{color:var(--dim);font-size:13.5px;text-align:center;max-width:56ch;margin:0 auto 20px}
+.others{display:grid;gap:12px;margin:16px 0 0}
+.others a{display:block;border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:16px 20px;text-decoration:none;color:var(--txt);transition:border-color .15s,background .15s}
+.others a:hover,.others a:focus,.others a:active{text-decoration:none;border-color:rgba(79,141,249,.5);background:#172152}
+.others a span{display:block;color:var(--mut);font-size:14.5px;margin-top:4px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+footer a{color:var(--mut);text-decoration:none}
+footer a:hover{color:var(--txt)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="icon.png" alt="">
+  <a class="name" href="index.html">Freenetic</a>
+  <nav><a href="index.html">← Retour au site</a></nav>
+</header>
+<main>
+<p class="kicker">Freebox · symptôme</p>
+
+<h1>La visio saccade sur Freebox&nbsp;: c'est souvent vous qui envoyez.</h1>
+<p class="lead">En visio, votre image et votre voix partent de chez vous. L'envoi est la moitié de la ligne que personne ne surveille, et il suffit d'une sauvegarde lancée en arrière-plan pour que Teams se fige pendant que Netflix marche très bien dans la pièce d'à côté.</p>
+
+<h2>Qui envoie sans vous le dire</h2>
+<ul class="list">
+  <li><b>Photos ou iCloud</b> qui expédient la photothèque après une série de vidéos de vacances.</li>
+  <li><b>Le NAS</b> qui synchronise ou sauvegarde vers un service distant, souvent à heure fixe.</li>
+  <li><b>Google Drive, Dropbox, OneDrive</b> après un gros fichier déposé dans le dossier partagé.</li>
+  <li><b>Un téléphone</b> qui envoie ses vidéos dans le cloud dès qu'il passe sur le Wi-Fi.</li>
+  <li><b>Une caméra</b> qui pousse son flux en continu vers son application.</li>
+</ul>
+<p>Le test de débit dit que tout va bien, parce qu'il regarde surtout la réception. Votre interlocuteur, lui, vous voit en mosaïque.</p>
+
+<h2>Ce que Freenetic affiche</h2>
+<div class="verdict o">
+  <q>Upload chargé (81&nbsp;%) — NAS</q>
+  <p>Le verdict précise le sens. Ce n'est pas un téléchargement qui sature la ligne, c'est un envoi, et l'app dit quel appareil le fait.</p>
+</div>
+<figure class="shot mac">
+  <img src="img/scenario-local.png" width="1600" height="1000" loading="lazy" alt="Freenetic sur Mac&nbsp;: «&nbsp;Upload chargé (82 %) — Ce Mac&nbsp;». La ligne du Mac est dépliée et montre l'application Photos en train d'envoyer 232 Mbit/s.">
+  <figcaption>Sur Mac, la ligne du Mac se déplie et désigne l'application. Ici Photos, qui expédie la photothèque à 232&nbsp;Mbit/s.</figcaption>
+</figure>
+<p>Le téléphone nomme l'appareil. Le Mac va plus loin&nbsp;: il croise le réseau de la box et ses propres applications, et nomme celle qui envoie. Une fois le Mac et le téléphone appairés, cette information est lisible sur le téléphone aussi, si vous l'autorisez.</p>
+
+<h2>Si l'envoi est calme et que ça saccade quand même</h2>
+<div class="verdict r">
+  <q>Latence élevée (235&nbsp;ms) malgré une ligne peu chargée</q>
+  <p>Le débit n'y est pour rien. Un envoi discret peut remplir la file d'attente de la box, ou le Wi-Fi capte mal là où vous êtes assis.</p>
+</div>
+<p>Depuis la version 1.7.0 sur Mac, Freenetic compare la réponse de la box à celle d'Internet, lit le signal Wi-Fi et donne une piste&nbsp;: «&nbsp;Un envoi en arrière-plan (NAS) remplit la file d'attente de la box&nbsp;», ou «&nbsp;La box répond vite&nbsp;: le problème est côté ligne ou fournisseur&nbsp;». Et si c'est <a href="wifi-faible-freebox.html">le Wi-Fi de la pièce</a>, le téléphone le mesure sur place.</p>
+
+<h2>Ce que vous faites ensuite</h2>
+<p>Mettre la sauvegarde en pause le temps de la réunion, ou la programmer la nuit. La plupart des services de synchronisation ont une option pour limiter leur débit d'envoi&nbsp;: c'est le réglage à chercher, une fois que vous savez lequel régler.</p>
+
+<div class="req"><p style="margin:0">Freenetic fonctionne avec les Freebox Révolution, Delta, Pop et Ultra, en mode routeur. Téléchargement gratuit, 7&nbsp;jours d'essai complet sur Mac, puis un achat unique à partir de 5,99&nbsp;€. Pas de compte, pas de cloud&nbsp;: l'app parle à la box sur votre réseau local et s'arrête là.</p></div>
+<div class="cta">
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12"><img src="img/mac-app-store-fr.svg" alt="Télécharger Freenetic dans le Mac App Store" width="211" height="54"></a>
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547"><img src="img/app-store-fr.svg" alt="Télécharger Freenetic dans l'App Store" width="171" height="54"></a>
+  <a class="badge" href="https://play.google.com/store/apps/details?id=pro.henry.freenetic"><img src="img/google-play-fr.png" alt="Télécharger Freenetic sur Google Play" width="140" height="54"></a>
+</div>
+<p class="fine">Mac, iPhone, iPad et Android. Le pack acheté chez Apple couvre les trois appareils Apple et débloque aussi Android.</p>
+
+<h2>Autres symptômes</h2>
+<div class="others">
+  <a href="freebox-lente-le-soir.html"><b>Freebox lente le soir</b><span>Quelqu'un chez vous mange la ligne, et l'app le nomme.</span></a>
+  <a href="wifi-faible-freebox.html"><b>Le Wi-Fi capte mal dans une pièce</b><span>La ligne n'y est pour rien. Le téléphone mesure le signal sur place.</span></a>
+</div>
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thibault Henry — <a href="index.html">Freenetic</a> · <a href="nouveautes.html">Nouveautés</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="mailto:freenetic@henry.pro">Support</a></span>
+    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. «&nbsp;Freebox&nbsp;» est une marque de Free SAS. Apple, App Store et Mac App Store sont des marques d'Apple Inc. Google Play est une marque de Google LLC.</span>
+  </div>
+</footer>
+</body>
+</html>

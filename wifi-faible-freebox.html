@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wi-Fi Freebox faible dans une pièce : la ligne n'y est pour rien — Freenetic</title>
+<meta name="description" content="Au fond du jardin ou dans la chambre du bout, tout saccade alors que personne ne télécharge. Freenetic mesure le signal Wi-Fi là où vous êtes et dit à quel répéteur vous êtes accroché.">
+<link rel="canonical" href="https://freenetic.henry.pro/wifi-faible-freebox.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freenetic.henry.pro/wifi-faible-freebox.html">
+<meta property="og:title" content="Wi-Fi Freebox faible dans une pièce : la ligne n'y est pour rien">
+<meta property="og:description" content="Au fond du jardin ou dans la chambre du bout, tout saccade alors que personne ne télécharge. Freenetic mesure le signal Wi-Fi là où vous êtes et dit à quel répéteur vous êtes accroché.">
+<meta property="og:image" content="https://freenetic.henry.pro/img/mobile-latence.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f26;--panel:#131b3f;--line:rgba(255,255,255,.08);--txt:#eef1fb;--mut:#9aa3c7;--dim:#5d6690;--blue:#4f8df9;--green:#3ddc97;--amber:#f5a524;--red:#f2555a;--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.65;font-size:16.5px}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 480px at 75% -10%, rgba(79,141,249,.14), transparent 65%)}
+.mono{font-family:"JetBrains Mono",monospace;font-feature-settings:"tnum"}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header{display:flex;align-items:center;gap:12px;padding:22px 0}
+header img{width:36px;height:36px}
+header .name{font-weight:700;font-size:19px}
+header a{color:inherit;text-decoration:none}
+header nav{margin-left:auto;font-size:14.5px;color:var(--mut)}
+header nav a:hover{color:var(--txt)}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:34px}
+h1{font-size:clamp(32px,5.6vw,50px);font-weight:750;letter-spacing:-.022em;line-height:1.08;margin:10px 0 14px;text-wrap:balance}
+.lead{color:var(--mut);font-size:clamp(17px,2vw,19.5px);line-height:1.5;margin-bottom:34px;max-width:60ch;text-wrap:pretty}
+h2{font-size:clamp(22px,3.2vw,29px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:46px 0 12px;text-wrap:balance}
+p,li{color:var(--mut);text-wrap:pretty}
+p{margin:12px 0}
+strong{color:var(--txt);font-weight:650}
+main a{color:var(--blue)}
+ul.list{list-style:disc;padding-left:22px;margin:14px 0}
+ul.list li{margin:9px 0}
+ul.list li b{color:var(--txt);font-weight:650}
+.verdict{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:22px 26px;margin:24px 0}
+.verdict q{display:block;quotes:none;font-size:clamp(19px,2.6vw,25px);line-height:1.3;font-weight:650;letter-spacing:-.015em}
+.verdict.r q{color:var(--red)}.verdict.o q{color:var(--amber)}.verdict.g q{color:var(--green)}
+.verdict p{margin:8px 0 0;font-size:15.5px}
+.shot{display:grid;grid-template-columns:minmax(0,1fr) 224px;gap:28px;align-items:start;margin:22px 0}
+.shot img{width:100%;height:auto;border-radius:20px;border:1px solid var(--line);display:block}
+.shot.mac{grid-template-columns:1fr}
+.shot figcaption{color:var(--dim);font-size:13.5px;margin-top:8px}
+@media(max-width:640px){.shot{grid-template-columns:1fr}.shot img{max-width:260px}.shot.mac img{max-width:none}}
+.scale{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+.scale th,.scale td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--line);color:var(--mut);vertical-align:top}
+.scale th{color:var(--txt);font-weight:600;white-space:nowrap}
+.req{border-left:3px solid var(--blue);padding:4px 0 4px 18px;margin:32px 0;font-size:15.5px}
+.cta{margin:40px 0 14px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.badge{display:inline-block;line-height:0;text-decoration:none}
+.badge:hover,.badge:focus,.badge:active{text-decoration:none}
+.badge img{display:block;height:54px;width:auto}
+.fine{color:var(--dim);font-size:13.5px;text-align:center;max-width:56ch;margin:0 auto 20px}
+.others{display:grid;gap:12px;margin:16px 0 0}
+.others a{display:block;border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:16px 20px;text-decoration:none;color:var(--txt);transition:border-color .15s,background .15s}
+.others a:hover,.others a:focus,.others a:active{text-decoration:none;border-color:rgba(79,141,249,.5);background:#172152}
+.others a span{display:block;color:var(--mut);font-size:14.5px;margin-top:4px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+footer a{color:var(--mut);text-decoration:none}
+footer a:hover{color:var(--txt)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="icon.png" alt="">
+  <a class="name" href="index.html">Freenetic</a>
+  <nav><a href="index.html">← Retour au site</a></nav>
+</header>
+<main>
+<p class="kicker">Freebox · symptôme</p>
+
+<h1>Le Wi-Fi capte mal dans une pièce&nbsp;: la ligne n'y est pour rien.</h1>
+<p class="lead">Dans la chambre du bout ou au fond du jardin, les pages chargent par à-coups et la visio gèle, alors que personne ne télécharge. Une ligne vide et un Wi-Fi faible se ressemblent vus de loin. Ils ne se réparent pas du tout pareil.</p>
+
+<h2>Comment le reconnaître</h2>
+<ul class="list">
+  <li>Le test de débit est bon dans le salon, et mauvais dans cette pièce.</li>
+  <li>Ça saccade par vagues, sans rapport avec ce que font les autres à la maison.</li>
+  <li>Redémarrer la box n'a rien changé, parce que la box n'a rien à voir avec ça.</li>
+</ul>
+
+<h2>Ce que Freenetic affiche</h2>
+<div class="verdict r">
+  <q>Latence élevée (235&nbsp;ms) malgré une ligne peu chargée</q>
+  <p>Les débits sont à zéro, et l'app le dit noir sur blanc plutôt que de vous laisser chercher un téléchargement qui n'existe pas.</p>
+</div>
+<figure class="shot">
+  <div>
+    <p>C'est là que le téléphone fait ce que le Mac ne peut pas&nbsp;: il mesure ce qu'il reçoit <strong>à l'endroit exact où vous êtes assis</strong>. La carte «&nbsp;cet appareil&nbsp;» dit à quel répéteur il est accroché, avec quelle puissance de signal, et quelle latence il obtient depuis cette pièce.</p>
+    <p>Répéteur Salon, <span class="mono">−72&nbsp;dB</span>, signal faible. Le problème est identifié, et il tient à un mur, pas à Free.</p>
+  </div>
+  <img src="img/mobile-latence.png" width="640" height="950" loading="lazy" alt="Freenetic sur Android&nbsp;: «&nbsp;Latence élevée (235 ms) malgré une ligne peu chargée&nbsp;», et la carte «&nbsp;cet appareil&nbsp;» signalant Répéteur Salon, −72 dB, signal faible.">
+</figure>
+
+<h2>Lire les décibels</h2>
+<p>Le signal Wi-Fi se mesure en dBm, en négatif. Plus le chiffre s'approche de zéro, meilleur il est. Les seuils sont indicatifs, mais ils donnent l'ordre de grandeur.</p>
+<table class="scale">
+  <tr><th>−50 dB et mieux</th><td>Excellent. Vous êtes à côté de la box ou du répéteur.</td></tr>
+  <tr><th>−60 à −67 dB</th><td>Correct. Visio, streaming et jeu en ligne tiennent.</td></tr>
+  <tr><th>−70 à −75 dB</th><td>Faible. Les pages chargent, la visio commence à geler.</td></tr>
+  <tr><th>−80 dB et moins</th><td>Inutilisable. L'appareil reste connecté, mais rien ne passe.</td></tr>
+</table>
+<p>Le point d'attache compte autant que la puissance. Un téléphone qui revient de la cuisine reste souvent accroché au répéteur qu'il vient de quitter, même si la box est plus proche. Freenetic vous dit lequel vous sert, et vous décidez s'il faut le déplacer.</p>
+
+<h2>Si le signal est bon et que la latence monte quand même</h2>
+<p>Depuis la version 1.7.0 sur Mac, Freenetic cherche la cause plutôt que d'exclure des pistes. Il compare la réponse de la box à celle d'Internet, repère les envois discrets, et donne un suspect&nbsp;: «&nbsp;Un envoi en arrière-plan (NAS) remplit la file d'attente de la box&nbsp;», ou «&nbsp;La box répond vite&nbsp;: le problème est côté ligne ou fournisseur&nbsp;». Dans le premier cas, lisez <a href="visio-saccade-freebox.html">la page sur les envois en arrière-plan</a>. Dans le second, c'est à Free qu'il faut parler, et vous avez de quoi le leur montrer.</p>
+
+<h2>Ce que vous faites ensuite</h2>
+<p>Déplacer le répéteur d'une pièce, ou en ajouter un entre la box et la chambre du bout. Ou changer de place vous-même. Freenetic mesure avant et après, dans la pièce, avec le téléphone que vous avez déjà dans la main.</p>
+
+<div class="req"><p style="margin:0">Freenetic fonctionne avec les Freebox Révolution, Delta, Pop et Ultra, en mode routeur. Téléchargement gratuit, 7&nbsp;jours d'essai complet sur Mac, puis un achat unique à partir de 5,99&nbsp;€. Pas de compte, pas de cloud&nbsp;: l'app parle à la box sur votre réseau local et s'arrête là.</p></div>
+<div class="cta">
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12"><img src="img/mac-app-store-fr.svg" alt="Télécharger Freenetic dans le Mac App Store" width="211" height="54"></a>
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547"><img src="img/app-store-fr.svg" alt="Télécharger Freenetic dans l'App Store" width="171" height="54"></a>
+  <a class="badge" href="https://play.google.com/store/apps/details?id=pro.henry.freenetic"><img src="img/google-play-fr.png" alt="Télécharger Freenetic sur Google Play" width="140" height="54"></a>
+</div>
+<p class="fine">Mac, iPhone, iPad et Android. Le pack acheté chez Apple couvre les trois appareils Apple et débloque aussi Android.</p>
+
+<h2>Autres symptômes</h2>
+<div class="others">
+  <a href="freebox-lente-le-soir.html"><b>Freebox lente le soir</b><span>Quelqu'un chez vous mange la ligne, et l'app le nomme.</span></a>
+  <a href="visio-saccade-freebox.html"><b>La visio saccade</b><span>C'est souvent un envoi en arrière-plan. Sur Mac, l'app dit lequel.</span></a>
+</div>
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thibault Henry — <a href="index.html">Freenetic</a> · <a href="nouveautes.html">Nouveautés</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="mailto:freenetic@henry.pro">Support</a></span>
+    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. «&nbsp;Freebox&nbsp;» est une marque de Free SAS. Apple, App Store et Mac App Store sont des marques d'Apple Inc. Google Play est une marque de Google LLC.</span>
+  </div>
+</footer>
+</body>
+</html>

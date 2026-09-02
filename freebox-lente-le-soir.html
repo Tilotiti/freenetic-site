@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freebox lente le soir : qui mange la ligne ? — Freenetic</title>
+<meta name="description" content="Votre Freebox rame à 21 h et personne n'avoue. Freenetic nomme l'appareil qui sature la ligne, en une phrase, sur Mac, iPhone, iPad et Android.">
+<link rel="canonical" href="https://freenetic.henry.pro/freebox-lente-le-soir.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freenetic.henry.pro/freebox-lente-le-soir.html">
+<meta property="og:title" content="Freebox lente le soir : qui mange la ligne ?">
+<meta property="og:description" content="Votre Freebox rame à 21 h et personne n'avoue. Freenetic nomme l'appareil qui sature la ligne, en une phrase, sur Mac, iPhone, iPad et Android.">
+<meta property="og:image" content="https://freenetic.henry.pro/img/mobile-sature.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f26;--panel:#131b3f;--line:rgba(255,255,255,.08);--txt:#eef1fb;--mut:#9aa3c7;--dim:#5d6690;--blue:#4f8df9;--green:#3ddc97;--amber:#f5a524;--red:#f2555a;--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.65;font-size:16.5px}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 480px at 75% -10%, rgba(79,141,249,.14), transparent 65%)}
+.mono{font-family:"JetBrains Mono",monospace;font-feature-settings:"tnum"}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header{display:flex;align-items:center;gap:12px;padding:22px 0}
+header img{width:36px;height:36px}
+header .name{font-weight:700;font-size:19px}
+header a{color:inherit;text-decoration:none}
+header nav{margin-left:auto;font-size:14.5px;color:var(--mut)}
+header nav a:hover{color:var(--txt)}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:34px}
+h1{font-size:clamp(32px,5.6vw,50px);font-weight:750;letter-spacing:-.022em;line-height:1.08;margin:10px 0 14px;text-wrap:balance}
+.lead{color:var(--mut);font-size:clamp(17px,2vw,19.5px);line-height:1.5;margin-bottom:34px;max-width:60ch;text-wrap:pretty}
+h2{font-size:clamp(22px,3.2vw,29px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:46px 0 12px;text-wrap:balance}
+p,li{color:var(--mut);text-wrap:pretty}
+p{margin:12px 0}
+strong{color:var(--txt);font-weight:650}
+main a{color:var(--blue)}
+ul.list{list-style:disc;padding-left:22px;margin:14px 0}
+ul.list li{margin:9px 0}
+ul.list li b{color:var(--txt);font-weight:650}
+.verdict{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:22px 26px;margin:24px 0}
+.verdict q{display:block;quotes:none;font-size:clamp(19px,2.6vw,25px);line-height:1.3;font-weight:650;letter-spacing:-.015em}
+.verdict.r q{color:var(--red)}.verdict.o q{color:var(--amber)}.verdict.g q{color:var(--green)}
+.verdict p{margin:8px 0 0;font-size:15.5px}
+.shot{display:grid;grid-template-columns:minmax(0,1fr) 224px;gap:28px;align-items:start;margin:22px 0}
+.shot img{width:100%;height:auto;border-radius:20px;border:1px solid var(--line);display:block}
+.shot.mac{grid-template-columns:1fr}
+.shot figcaption{color:var(--dim);font-size:13.5px;margin-top:8px}
+@media(max-width:640px){.shot{grid-template-columns:1fr}.shot img{max-width:260px}.shot.mac img{max-width:none}}
+.scale{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+.scale th,.scale td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--line);color:var(--mut);vertical-align:top}
+.scale th{color:var(--txt);font-weight:600;white-space:nowrap}
+.req{border-left:3px solid var(--blue);padding:4px 0 4px 18px;margin:32px 0;font-size:15.5px}
+.cta{margin:40px 0 14px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.badge{display:inline-block;line-height:0;text-decoration:none}
+.badge:hover,.badge:focus,.badge:active{text-decoration:none}
+.badge img{display:block;height:54px;width:auto}
+.fine{color:var(--dim);font-size:13.5px;text-align:center;max-width:56ch;margin:0 auto 20px}
+.others{display:grid;gap:12px;margin:16px 0 0}
+.others a{display:block;border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:16px 20px;text-decoration:none;color:var(--txt);transition:border-color .15s,background .15s}
+.others a:hover,.others a:focus,.others a:active{text-decoration:none;border-color:rgba(79,141,249,.5);background:#172152}
+.others a span{display:block;color:var(--mut);font-size:14.5px;margin-top:4px}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+footer a{color:var(--mut);text-decoration:none}
+footer a:hover{color:var(--txt)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="icon.png" alt="">
+  <a class="name" href="index.html">Freenetic</a>
+  <nav><a href="index.html">← Retour au site</a></nav>
+</header>
+<main>
+<p class="kicker">Freebox · symptôme</p>
+
+<h1>Freebox lente le soir&nbsp;: quelqu'un chez vous mange la ligne.</h1>
+<p class="lead">À 21&nbsp;h, tout le monde est rentré et tout le monde se connecte en même temps. Quand la Freebox rame à cette heure-là, la cause tient rarement à Free&nbsp;: un appareil du foyer remplit la ligne, et il ne le dit à personne.</p>
+
+<h2>Les suspects habituels à 21&nbsp;h</h2>
+<ul class="list">
+  <li><b>Le téléviseur du salon</b> qui télécharge un film ou une série en 4K avant de la lire.</li>
+  <li><b>La console</b> qui rapatrie une mise à jour de jeu. Cinquante à cent gigaoctets, lancés sans prévenir au premier allumage de la soirée.</li>
+  <li><b>Un téléphone ou une tablette</b> qui met ses applications à jour dès qu'il retrouve le Wi-Fi.</li>
+  <li><b>Un Mac ou un NAS</b> qui envoie sa sauvegarde dans le cloud. Là, c'est la moitié <em>envoi</em> de la ligne qui se remplit, et la visio en souffre la première.</li>
+</ul>
+<p>Vus depuis le canapé, ces quatre cas se ressemblent&nbsp;: ça rame. Ils ne se règlent pas de la même façon, et on ne peut pas régler ce qu'on n'a pas nommé.</p>
+
+<h2>Ce que Freenetic affiche</h2>
+<div class="verdict r">
+  <q>Download saturé (94&nbsp;%) — Téléviseur</q>
+  <p>Le verdict tient en une phrase, en tête d'écran, et il est réévalué chaque seconde. Le pourcentage dit à quel point la ligne est pleine, et le nom dit qui la remplit.</p>
+</div>
+<figure class="shot">
+  <div>
+    <p>Sous le verdict, la liste de vos appareils avec leur débit de réception et d'envoi en direct, celui qui consomme le plus en tête. Vous n'avez plus à faire le tour des chambres pour demander qui télécharge&nbsp;: vous savez qui, combien, et depuis quand.</p>
+    <p>Sur Mac, l'app va un cran plus loin et nomme aussi l'application responsable quand le coupable est le Mac lui-même.</p>
+  </div>
+  <img src="img/mobile-sature.png" width="640" height="950" loading="lazy" alt="Freenetic sur Android&nbsp;: «&nbsp;Download saturé (94 %) — Téléviseur&nbsp;», jauge de réception à 118 Mo/s soit 94 % de la ligne, latence Internet montée à 74 ms.">
+</figure>
+
+<h2>Et hier soir, c'était quoi&nbsp;?</h2>
+<p>On ouvre ce genre d'app après la panne, jamais pendant. Freenetic garde la dernière heure minute par minute, et les 24&nbsp;dernières heures colorées selon l'état de la ligne. Le téléchargement de 3&nbsp;h du matin ne s'échappe plus, et vous pouvez montrer à la personne concernée à quelle heure sa console a pris toute la ligne.</p>
+
+<h2>Si le verdict est vert</h2>
+<div class="verdict g">
+  <q>Rien d'anormal — ligne utilisée à 1&nbsp;%</q>
+  <p>Ce n'est ni la box, ni le foyer. Le site ou le service que vous utilisez rame chez lui, ou la ligne a un souci côté Free. Vous pouvez arrêter de redémarrer des choses au hasard.</p>
+</div>
+<p>Troisième cas&nbsp;: la ligne est vide, mais tout saccade quand même. Le débit n'y est pour rien, et il faut regarder <a href="wifi-faible-freebox.html">le Wi-Fi dans la pièce où vous êtes</a>.</p>
+
+<h2>Ce que vous faites ensuite</h2>
+<p>Une fois le coupable nommé, la solution est courte&nbsp;: mettre le téléchargement en pause, programmer les mises à jour de la console la nuit, ou décaler la sauvegarde du NAS. Freenetic ne coupe rien et ne bride personne. Il vous dit juste à qui parler.</p>
+
+<div class="req"><p style="margin:0">Freenetic fonctionne avec les Freebox Révolution, Delta, Pop et Ultra, en mode routeur. Téléchargement gratuit, 7&nbsp;jours d'essai complet sur Mac, puis un achat unique à partir de 5,99&nbsp;€. Pas de compte, pas de cloud&nbsp;: l'app parle à la box sur votre réseau local et s'arrête là.</p></div>
+<div class="cta">
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547?mt=12"><img src="img/mac-app-store-fr.svg" alt="Télécharger Freenetic dans le Mac App Store" width="211" height="54"></a>
+  <a class="badge" href="https://apps.apple.com/fr/app/freenetic/id6789539547"><img src="img/app-store-fr.svg" alt="Télécharger Freenetic dans l'App Store" width="171" height="54"></a>
+  <a class="badge" href="https://play.google.com/store/apps/details?id=pro.henry.freenetic"><img src="img/google-play-fr.png" alt="Télécharger Freenetic sur Google Play" width="140" height="54"></a>
+</div>
+<p class="fine">Mac, iPhone, iPad et Android. Le pack acheté chez Apple couvre les trois appareils Apple et débloque aussi Android.</p>
+
+<h2>Autres symptômes</h2>
+<div class="others">
+  <a href="visio-saccade-freebox.html"><b>La visio saccade</b><span>C'est souvent un envoi en arrière-plan. Sur Mac, l'app dit lequel.</span></a>
+  <a href="wifi-faible-freebox.html"><b>Le Wi-Fi capte mal dans une pièce</b><span>La ligne n'y est pour rien. Le téléphone mesure le signal sur place.</span></a>
+</div>
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thibault Henry — <a href="index.html">Freenetic</a> · <a href="nouveautes.html">Nouveautés</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="mailto:freenetic@henry.pro">Support</a></span>
+    <span>Freenetic est un projet indépendant, non affilié à Free ni au groupe Iliad. «&nbsp;Freebox&nbsp;» est une marque de Free SAS. Apple, App Store et Mac App Store sont des marques d'Apple Inc. Google Play est une marque de Google LLC.</span>
+  </div>
+</footer>
+</body>
+</html>
