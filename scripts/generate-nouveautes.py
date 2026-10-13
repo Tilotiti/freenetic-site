@@ -70,7 +70,7 @@ def render(entries):
                                for p in e["body"].split("\n\n") if p.strip())
         blocks.append(
             f'    <article class="{classes}">\n'
-            f'      <div class="ver"><span class="num">{html.escape(e["version"])}</span>{when}{tag}</div>\n'
+            f'      <h2 class="ver"><span class="num">{html.escape(e["version"])}</span>{when}{tag}</h2>\n'
             f"{paragraphs}\n"
             f"    </article>"
         )
